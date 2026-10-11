@@ -1,9 +1,11 @@
 name: Synthetic runtime preflight V3
 
-# Dormant until the repository-local test source is present and this workflow
-# is explicitly invoked. No push, pull_request, schedule, or remote service.
+# Only the one-use request-file push can start this bounded software test.
+# No general push, pull-request, schedule, dispatch, or inference service.
 on:
-  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: [runtime-preflight/requests/qualification-v3.json]
 
 permissions: {}
 
@@ -13,7 +15,7 @@ concurrency:
 
 jobs:
   qualify:
-    if: ${{ github.repository == 'johnsbartholomew-star/ccc-Testing-areas' && github.event.repository.private == false && github.run_attempt == 1 }}
+    if: ${{ github.repository == 'johnsbartholomew-star/ccc-Testing-areas' && github.event.repository.private == false && github.run_attempt == 1 && github.event.head_commit.message == 'Execute synthetic runtime preflight V3 once' }}
     runs-on: ubuntu-24.04
     timeout-minutes: 40
     env:
@@ -38,13 +40,19 @@ jobs:
           git -C test-source fetch --quiet --depth=1 origin "$GITHUB_SHA"
           git -C test-source checkout --quiet --detach FETCH_HEAD
           test "$(git -C test-source rev-parse HEAD)" = "$GITHUB_SHA"
+      - name: Verify frozen repository-local test sources
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd test-source
+          sha256sum --check runtime-preflight/SHA256SUMS
+          python3 --version
+          cmake --version
+          c++ --version
       - name: Execute repository-local synthetic qualification
         shell: bash
         run: |
           set -euo pipefail
-          test -f test-source/runtime-preflight/qualify.py || {
-            echo 'NOT_EXECUTED: qualification source has not been published'; exit 1;
-          }
           cd test-source
           timeout --signal=TERM --kill-after=10s 2100s python3 runtime-preflight/qualify.py
 
