@@ -1,0 +1,171 @@
+{
+  "protocol": "synthetic-runtime-preflight-terminal-extract/1",
+  "evidence_kind": "Structured extraction of observed terminal GitHub job logs; not a new execution or a replacement for the raw provider log",
+  "repository": "johnsbartholomew-star/ccc-Testing-areas",
+  "executed_commit": "90073f96b464cb9ec0f1e5b86e55292db3bba469",
+  "workflow": ".github/workflows/synthetic-runtime-preflight-v3.yml",
+  "workflow_blob": "26e00f5466d3a1cd4f9270f98b084a6c611e0b9e",
+  "run_id": 38126123294,
+  "job_id": 114430742945,
+  "run_attempt": 1,
+  "run_url": "https://github.com/johnsbartholomew-star/ccc-Testing-areas/actions/runs/38126123294",
+  "workflow_status": "completed",
+  "workflow_conclusion": "failure",
+  "qualification_status": "NOT_QUALIFIED_WITHIN_FROZEN_TIME_BOUND",
+  "driver_status": "FAILED_OR_BLOCKED",
+  "blocker": "RuntimeError: INFERENCE_1_FAILED",
+  "stop": "STAGE_TIMEOUT",
+  "native_returncode": -15,
+  "native_elapsed_seconds": 800.612973,
+  "driver_total_elapsed_seconds": 960.377194,
+  "runner": {
+    "public": true,
+    "label": "ubuntu-24.04",
+    "runner_environment": "github-hosted",
+    "runner_group": "GitHub Actions",
+    "image_version": "20261005.1",
+    "os": "Ubuntu 24.04.3 LTS",
+    "platform": "Linux-6.14.0-1015-azure-x86_64-with-glibc2.39",
+    "allocated_vcpus": 4,
+    "cpu_model": "AMD EPYC 7763 64-Core Processor",
+    "physical_ram_kib": 16359296,
+    "initial_available_ram_kib": 14587264,
+    "initial_disk_free_bytes": 13738053632,
+    "python": "3.12.3",
+    "cmake": "3.31.6",
+    "compiler": "GCC 13.3.0"
+  },
+  "pins": {
+    "runtime_repository": "ggml-org/llama.cpp",
+    "runtime_commit": "23b0202a189c44a54625aadcb37a946dd1d6278d",
+    "runtime_commit_verified": true,
+    "model_repository": "ggml-org/SmolLM3-3B-GGUF",
+    "model_revision": "4965cb60b150737b68a0408c36aeefb65078f894",
+    "model_file": "SmolLM3-Q4_K_M.gguf",
+    "model_bytes": 1923052064,
+    "expected_model_sha256": "8334b850b7bd46238c16b0c550df2138f0889bf433809008cc17a8b05761863e",
+    "observed_model_sha256": "8334b850b7bd46238c16b0c550df2138f0889bf433809008cc17a8b05761863e",
+    "native_binary_sha256": "d0506446791f3e0582bc603bdce5db8d32d2dcbd788150723ef8e12fb2a92ea6",
+    "cmake_cache_sha256": "e9227fd4b89b3251f1a477dd3bafce47d2ec0c92dad4904c18e1f5dbf64e3f71"
+  },
+  "source_sha256": {
+    "runtime-preflight/CMakeLists.txt": "35ebacb55932593981990b427ca10df061fb864678ff907165d8a2cd76ed4909",
+    "runtime-preflight/probe.cpp": "73413c5b647af6103b6b43579eb76bf1562422064edd6508d7220053412a96d7",
+    "runtime-preflight/qualify.py": "bc2a41d5357198e9d6695ebafaa89b6b145e2003dadfe82ff420a3cb5d1631fa"
+  },
+  "configuration": {
+    "content_input_tokens": 49152,
+    "generation_reserve_tokens": 4096,
+    "allocated_context_tokens": 53248,
+    "model_declared_context_tokens": 65536,
+    "maximum_generated_tokens": 16,
+    "intended_fresh_processes": 2,
+    "threads": 4,
+    "gpu_layers": 0,
+    "kv_cache": "f16 K and V",
+    "batch": 512,
+    "microbatch": 128,
+    "flash_attention": true,
+    "decoding": "greedy",
+    "add_special": false,
+    "parse_special": false,
+    "native_timeout_seconds": 800,
+    "outer_timeout_seconds": 2100,
+    "job_timeout_minutes": 40
+  },
+  "observations": {
+    "source_checksums": "PASS",
+    "runtime_build": "PASS",
+    "model_integrity": "PASS",
+    "model_load": "PASS_MAPPED_API_LOAD_ONLY",
+    "model_load_seconds": 0.821684,
+    "model_load_mode": 0,
+    "model_download_seconds": 44.723107,
+    "runtime_compile_seconds": 94.216789,
+    "context_allocation_seconds": 0.314792,
+    "tokenizer_count": 49152,
+    "tokenizer_roundtrip_equal": true,
+    "kv_cache_allocated_mib": 3744.0,
+    "compute_buffer_mib": 65.75,
+    "last_confirmed_processed_input_tokens": 24576,
+    "last_prefill_checkpoint_seconds": 770.295319,
+    "partial_prefill_tokens_per_second_derived": 31.904646690446786,
+    "prefill_checkpoints": [
+      [
+        4096,
+        126.733809
+      ],
+      [
+        8192,
+        253.266915
+      ],
+      [
+        12288,
+        381.008126
+      ],
+      [
+        16384,
+        509.634278
+      ],
+      [
+        20480,
+        639.559103
+      ],
+      [
+        24576,
+        770.295319
+      ]
+    ],
+    "full_input_processing_complete": false,
+    "generation": "NOT_REACHED",
+    "generation_tokens_per_second": null,
+    "second_fresh_process": "NOT_STARTED",
+    "fresh_process_reproduction": "NOT_TESTED"
+  },
+  "memory": {
+    "scope": "first process through interrupted partial prefill only",
+    "peak_sampled_vm_hwm_kib": 6367892,
+    "minimum_system_available_kib": 7649868,
+    "last_sample_vm_rss_kib": 6367748,
+    "after_termination_available_kib": 14124756,
+    "swap_used_kib": 0,
+    "new_swap_out_pages": 0,
+    "sampled_memory_pressure": "all reported PSI values zero",
+    "native_final_getrusage_peak_kib": null,
+    "full_context_inference_memory_fit": "NOT_ESTABLISHED"
+  },
+  "input_file_identities": {
+    "input.txt": {
+      "bytes": 200554,
+      "sha256": "de52e53a2fcf5fddfb24ffb7a08bd008e5cbf29f2ecab5b87e36d1d2a4243ddc4"
+    },
+    "input.tokens": {
+      "bytes": 231438,
+      "sha256": "acdfcbd56b7815a4cb18c5d7b4e8d82646026712983ce2c3de2f98b479b807039"
+    }
+  },
+  "runner_reported_stage_log_sha256": {
+    "inference_1": "6ea44c1857c00d112019b07a735343559156f24d84b43a8b4ad599a3b48a9cc37",
+    "compile": "ccd67992d588816da26a4ec20e212b6b3476519297c7b921ddc8acd0a6834535"
+  },
+  "cost_boundary": {
+    "standard_public_runner": true,
+    "larger_runner": false,
+    "paid_compute_selected": false,
+    "artifact_upload": false,
+    "cache": false,
+    "paid_api": false,
+    "invoice_audit_performed": false
+  },
+  "not_proven": [
+    "Full 49152-token input processing",
+    "Generation after the full input",
+    "Second fresh-process output equality",
+    "Final full-context peak memory",
+    "Semantic accuracy or long-context recall",
+    "Feasibility under a longer time allowance"
+  ],
+  "no_retry_or_substitution": true,
+  "scored_experiment": false,
+  "time_note": "Use process elapsed times for measurements. Buffered log timestamps are not per-checkpoint observation times."
+}
