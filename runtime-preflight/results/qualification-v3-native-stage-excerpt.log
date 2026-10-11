@@ -1,0 +1,25 @@
+# Native-stage excerpt from GitHub Actions run 38126123294, job 114430742945.
+# Copied from observed terminal job log; timestamp prefixes removed. Not the complete raw job log.
+# The runner-reported inference_1.log digest refers to that stage file, NOT this annotated excerpt.
+llama_model_loader: - kv   2:                       llama.context_length u32              = 65536
+llama_model_load:   CPU_Mapped model buffer size =  1833.06 MiB
+{"stage":"model_loaded","load_seconds":0.821684,"model_context":65536,"model_load_mode":0}
+llama_context: n_seq_max     = 1
+llama_context: n_ctx         = 53248
+llama_context: n_batch       = 512
+llama_context: n_ubatch      = 128
+llama_context: flash_attn    = 1
+llama_context: n_ctx_per_seq (53248) < n_ctx_train (65536) -- the full capacity of the model will not be utilized
+llama_kv_cache:        CPU KV buffer size =  3744.00 MiB
+llama_kv_cache: size = 3744.00 MiB ( 53248 cells, 36 layers,  1/1 seqs), K (f16): 1872.00 MiB, V (f16): 1872.00 MiB
+llama_context:        CPU compute buffer size =    65.75 MiB
+{"stage":"tokenizer_and_context","input_tokens":49152,"generation_reserve":4096,"runtime_context":53248,"context_seconds":0.314792,"roundtrip_equal":true,"add_special":false,"parse_special":false}
+{"stage":"prefill_progress","processed_tokens":4096,"elapsed_seconds":126.733809}
+{"stage":"prefill_progress","processed_tokens":8192,"elapsed_seconds":253.266915}
+{"stage":"prefill_progress","processed_tokens":12288,"elapsed_seconds":381.008126}
+{"stage":"prefill_progress","processed_tokens":16384,"elapsed_seconds":509.634278}
+{"stage":"prefill_progress","processed_tokens":20480,"elapsed_seconds":639.559103}
+{"stage":"prefill_progress","processed_tokens":24576,"elapsed_seconds":770.295319}
+# Driver terminal extraction: STAGE_TIMEOUT; native returncode -15; native elapsed 800.612973 s.
+# Driver blocker: RuntimeError: INFERENCE_1_FAILED; driver total elapsed 960.377194 s.
+# Generation was not reached; no second process was started.
