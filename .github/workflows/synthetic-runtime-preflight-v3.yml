@@ -1,0 +1,52 @@
+name: Synthetic runtime preflight V3
+
+# Dormant until the repository-local test source is present and this workflow
+# is explicitly invoked. No push, pull_request, schedule, or remote service.
+on:
+  workflow_dispatch:
+
+permissions: {}
+
+concurrency:
+  group: synthetic-runtime-preflight-v3
+  cancel-in-progress: false
+
+jobs:
+  qualify:
+    if: ${{ github.repository == 'johnsbartholomew-star/ccc-Testing-areas' && github.event.repository.private == false && github.run_attempt == 1 }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    env:
+      LLAMA_COMMIT: 23b0202a189c44a54625aadcb37a946dd1d6278d
+      MODEL_REPOSITORY: ggml-org/SmolLM3-3B-GGUF
+      MODEL_REVISION: 4965cb60b150737b68a0408c36aeefb65078f894
+      MODEL_FILE: SmolLM3-Q4_K_M.gguf
+      MODEL_SHA256: 8334b850b7bd46238c16b0c550df2138f0889bf433809008cc17a8b05761863e
+      PROMPT_TOKENS_MIN: '49152'
+      GENERATION_RESERVE: '4096'
+      CONTEXT_TOKENS: '53248'
+      OMP_NUM_THREADS: '4'
+    steps:
+      - name: Retrieve this repository's exact public test revision
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$RUNNER_ENVIRONMENT" = github-hosted
+          test "$RUNNER_OS" = Linux
+          git init --quiet test-source
+          git -C test-source remote add origin "https://github.com/${GITHUB_REPOSITORY}.git"
+          git -C test-source fetch --quiet --depth=1 origin "$GITHUB_SHA"
+          git -C test-source checkout --quiet --detach FETCH_HEAD
+          test "$(git -C test-source rev-parse HEAD)" = "$GITHUB_SHA"
+      - name: Execute repository-local synthetic qualification
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f test-source/runtime-preflight/qualify.py || {
+            echo 'NOT_EXECUTED: qualification source has not been published'; exit 1;
+          }
+          cd test-source
+          timeout --signal=TERM --kill-after=10s 2100s python3 runtime-preflight/qualify.py
+
+# No artifact upload, cache, package publication, model service, secrets,
+# paid runner, or automatic retry. Measurements belong in the bounded job log.
