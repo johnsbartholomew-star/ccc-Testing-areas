@@ -1,0 +1,23 @@
+{
+  "protocol": "synthetic-runtime-preflight-request/1",
+  "request_id": "qualification-v3-once",
+  "prepared_source_commit": "32a881d7217fd57ffa68d6deb4eaa0d916201f68",
+  "workflow_blob": "26e00f5466d3a1cd4f9270f98b084a6c611e0b9e",
+  "runner": "ubuntu-24.04",
+  "public_repository_required": true,
+  "paid_compute_allowed": false,
+  "scored_experiment": false,
+  "llama_commit": "23b0202a189c44a54625aadcb37a946dd1d6278d",
+  "model_revision": "4965cb60b150737b68a0408c36aeefb65078f894",
+  "model_file": "SmolLM3-Q4_K_M.gguf",
+  "model_sha256": "8334b850b7bd46238c16b0c550df2138f0889bf433809008cc17a8b05761863e",
+  "content_input_tokens": 49152,
+  "generation_reserve_tokens": 4096,
+  "total_context_tokens": 53248,
+  "maximum_generated_tokens_per_process": 16,
+  "fresh_process_repetitions": 2,
+  "native_process_timeout_seconds": 800,
+  "job_timeout_minutes": 40,
+  "automatic_retry": false,
+  "instruction": "One bounded integration test of repository software. Do not modify this one-use request or resubmit on uncertain execution state."
+}
