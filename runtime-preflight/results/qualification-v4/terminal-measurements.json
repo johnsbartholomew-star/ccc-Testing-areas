@@ -1,0 +1,244 @@
+{
+  "protocol": "ccc-2x-v4-hosted-runtime-terminal-reconciliation/1",
+  "evidence_type": "Observed GitHub Actions terminal job log extraction; source log preserved separately",
+  "authoritative_run": {
+    "repository": "johnsbartholomew-star/ccc-Testing-areas",
+    "run_id": 38314672710,
+    "job_id": 115028344812,
+    "attempt": 1,
+    "trigger_commit": "2740dce8ff6cea792e0318188ff8c14f2de697da",
+    "created_at": "2026-10-12T22:06:04Z",
+    "run_started_at": "2026-10-12T22:06:04Z",
+    "updated_at": "2026-10-12T23:08:23Z",
+    "run_status": "completed",
+    "run_conclusion": "failure",
+    "job_status": "completed",
+    "job_conclusion": "failure",
+    "job_steps": [
+      {
+        "name": "Set up job",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "name": "Retrieve this repository's exact public test revision",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "name": "Verify frozen repository-local test sources",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "name": "Execute repository-local synthetic qualification",
+        "status": "completed",
+        "conclusion": "failure"
+      },
+      {
+        "name": "Complete job",
+        "status": "completed",
+        "conclusion": "success"
+      }
+    ],
+    "url": "https://github.com/johnsbartholomew-star/ccc-Testing-areas/actions/runs/38314672710"
+  },
+  "frozen_source": {
+    "staged_commit": "933f17e225b4fe22125056dc5c2688be81f71fa5",
+    "workflow": ".github/workflows/synthetic-runtime-preflight-v4.yml",
+    "workflow_git_blob": "b88bfa310c4bf5a18d9efd56bd478d7696fb11bd",
+    "v4_driver": "runtime-preflight/qualify-v4.py",
+    "v4_driver_sha256": "622b5858c6aff2e0c7cf515c033022f122ed559cd4c49e154fe457a8df52da43",
+    "native_probe_sha256": "73413c5b647af6103b6b43579eb76bf1562422064edd6508d7220053412a96d7",
+    "cmake_sha256": "35ebacb55932593981990b427ca10df061fb864678ff907165d8a2cd76ed4909",
+    "v4_source_manifest": "runtime-preflight/SHA256SUMS-v4",
+    "pre_run_checksum_step": "PASS",
+    "runtime_commit": "23b0202a189c44a54625aadcb37a946dd1d6278d",
+    "binary_sha256": "deb807b0453db6026e3142dbbe650b6a02094a4335c955f78d1d6d5eab2741fa",
+    "cmake_cache_sha256": "94f9c12fa6b6b319cfb309445c27389e0cc8ee89faa014ade741f270f98191aa",
+    "upstream_files_sha256": {
+      "CMakeLists.txt": "94d646f48594469909522d2a539aad943705309686646fd8a69cc15c43029e69",
+      "examples/simple/simple.cpp": "5f3160b48b5c0adff984dfdc6ad39cf9ee113b4d63600596f2127f9a0b9a869e",
+      "include/llama.h": "948cc00d355471c4309aa58d9f05410a58a27122ef419af439c0d17215065a92"
+    },
+    "source_check_manifest_note": "Original V3 qualify.py remains in runtime-preflight/; V4 executable driver is qualify-v4.py verified separately by SHA256SUMS-v4."
+  },
+  "model": {
+    "repository": "ggml-org/SmolLM3-3B-GGUF",
+    "revision": "4965cb60b150737b68a0408c36aeefb65078f894",
+    "file": "SmolLM3-Q4_K_M.gguf",
+    "expected_sha256": "8334b850b7bd46238c16b0c550df2138f0889bf433809008cc17a8b05761863e",
+    "observed_sha256": "8334b850b7bd46238c16b0c550df2138f0889bf433809008cc17a8b05761863e",
+    "sha256_matches": true,
+    "bytes": 1915305312,
+    "mapped_load_api_seconds": 1.51686,
+    "model_declared_context_tokens": 65536,
+    "load_mode": -1,
+    "model_load_benchmark_caveat": "Mapped model API load; not a cold-resident full loading benchmark"
+  },
+  "hardware": {
+    "standard_github_hosted_runner": true,
+    "public_repository": true,
+    "ubuntu_image": "20261004.327.1",
+    "os": "PRETTY_NAME=\"Ubuntu 24.04.5 LTS\"",
+    "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+    "allocated_vcpus": 4,
+    "cpu_model": "model name\t: Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz",
+    "physical_memory_kib": 16372440,
+    "initial_available_memory_kib": 15402484,
+    "free_disk_bytes": 91397496832
+  },
+  "configuration": {
+    "input_tokens": 49152,
+    "generation_reserve": 4096,
+    "allocated_context": 53248,
+    "generated_tokens_cap": 16,
+    "kv_cache": "f16 K and V",
+    "decoding": "greedy; no RNG",
+    "threads": 4,
+    "native_process_limit_seconds": 3600,
+    "driver_guard_seconds": 7700,
+    "outer_shell_limit_seconds": 7800,
+    "job_limit_minutes": 135,
+    "automatic_retry": false,
+    "no_scored_experiment": true
+  },
+  "tokenizer": {
+    "native_accounting": 49152,
+    "native_roundtrip_equal": true,
+    "context_allocated": 53248,
+    "context_setup_seconds": 0.769862,
+    "add_special": false,
+    "parse_special": false
+  },
+  "processing": {
+    "input_processing_complete": false,
+    "last_checkpoint_tokens": 45056,
+    "last_checkpoint_seconds": 3505.41,
+    "required_input_tokens": 49152,
+    "remaining_input_tokens": 4096,
+    "completion_fraction": 0.9166666666666666,
+    "partial_input_throughput_tokens_per_second": 12.853275365791735,
+    "final_checkpoint_segment_throughput_tokens_per_second": 7.800418967815656,
+    "checkpoints": [
+      {
+        "tokens": 4096,
+        "seconds": 112.587
+      },
+      {
+        "tokens": 8192,
+        "seconds": 266.027
+      },
+      {
+        "tokens": 12288,
+        "seconds": 459.703
+      },
+      {
+        "tokens": 16384,
+        "seconds": 694.479
+      },
+      {
+        "tokens": 20480,
+        "seconds": 971.261
+      },
+      {
+        "tokens": 24576,
+        "seconds": 1288.98
+      },
+      {
+        "tokens": 28672,
+        "seconds": 1648.17
+      },
+      {
+        "tokens": 32768,
+        "seconds": 2051.07
+      },
+      {
+        "tokens": 36864,
+        "seconds": 2495.59
+      },
+      {
+        "tokens": 40960,
+        "seconds": 2980.31
+      },
+      {
+        "tokens": 45056,
+        "seconds": 3505.41
+      }
+    ]
+  },
+  "generation": {
+    "reached": false,
+    "generated_tokens": null,
+    "throughput_tokens_per_second": null,
+    "output_hashes_available": false
+  },
+  "memory": {
+    "scope": "Observed first process only, interrupted partial prefill",
+    "sampled_peak_vm_hwm_kib": 7117632,
+    "minimum_system_available_kib": 10049748,
+    "last_rss_kib": 7117632,
+    "last_pswpout": 0,
+    "new_swap_out": 0,
+    "swap_used_kib": 0,
+    "psi_sample": "some avg10=0.00 avg60=0.00 avg300=0.00 total=1\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=1",
+    "full_context_peak_established": false,
+    "final_getrusage_peak_kib": null
+  },
+  "time": {
+    "first_process_wall_seconds": 3600.4452503,
+    "first_process_stop": "STAGE_TIMEOUT",
+    "first_process_return_code": -15,
+    "driver_total_elapsed_seconds": 3728.98967441,
+    "provider_started_at": "2026-10-12T22:06:04Z",
+    "provider_updated_at": "2026-10-12T23:08:23Z",
+    "outer_job_timeout_hit": false
+  },
+  "repeatability": {
+    "second_process_started": false,
+    "result": "NOT_TESTED"
+  },
+  "classification": {
+    "runtime_qualification": "RUNTIME_NOT_QUALIFIED",
+    "reason": "First process exceeded the preregistered 3600-second native stage limit before full 49152-token input; generation and second fresh process not reached",
+    "ready_for_ccc2x_build": false,
+    "ccc2x_memory_leverage_hypothesis_result": "NOT_TESTED",
+    "next_action": "Manager reconcile V4 measured timeout; no automatic V5, no further execution without a new approved bounded assignment"
+  },
+  "cost": {
+    "runner_class": "standard public GitHub Actions ubuntu-24.04",
+    "zero_cost_class": true,
+    "paid_runner": false,
+    "paid_api": false,
+    "cache": false,
+    "artifact_upload": false,
+    "account_invoice_audit": false
+  },
+  "other_active_runs_at_execution": [],
+  "input_artifact_hashes": {
+    "input.tokens": {
+      "bytes": 239337,
+      "sha256": "4e390ed3680d880978ae519a29087cefd21570f8e60e52d0c8a414957c9ae9d2"
+    },
+    "input.txt": {
+      "bytes": 196622,
+      "sha256": "06d9401f9cd58f2455ce7be03240ab3827584b5c84c11d9fdb2f629c81209079"
+    }
+  },
+  "runner_reported_native_log_sha256": "50062a78a6ab5c8cef759ce004c02cce194999efe8a222497ca7ce2a75b47491",
+  "raw_provider_log": {
+    "path": "runtime-preflight/results/qualification-v4/github-actions-job-115028344812-full.log",
+    "sha256": "d2a975f2404bc7340554a6523f88d1f0dcea96032d913b8ab4da01adea4f4429",
+    "git_blob": "276cbfff2c1c15d450a1eea0b6531233e14305ae",
+    "pinned_commit": "b4e41c081d43f73c90e4de7af33cf16100d8e2e4",
+    "bytes_utf8": 394138,
+    "full_provider_job_log": true
+  },
+  "caveats": [
+    "GitHub timestamps on buffered native stdout reflect log flush, not individual checkpoint observation times; stage elapsed_seconds are measurement clocks",
+    "The runner-reported inference_1.log SHA256 is for the native subprocess log and is not the checksum of the full provider job log",
+    "MODEL_SHA match does not imply end-to-end successful full-context inference",
+    "The timeout is not evidence against the CCC-2X memory-leverage hypothesis",
+    "The expected throughput of a longer time-bound test is not extrapolated into a pass"
+  ]
+}
